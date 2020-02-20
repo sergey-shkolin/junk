@@ -6,4 +6,9 @@ jobs:
     steps:
       - checkout # check out the code in the project directory
       - run: echo "hello world" # run the `echo` command
+      - run: echo $(date) > result.txt
+      - store_artifacts:
+          path: result.txt
+      - store_test_results:
+          path: result.txt
 
